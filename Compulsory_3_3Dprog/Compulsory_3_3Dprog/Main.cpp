@@ -66,6 +66,7 @@ int main()
 	Surface surface1;
 
 	Objects objects1;
+	Objects objects2;
 	
 	Character character1;
 
@@ -95,6 +96,8 @@ int main()
 
 	//(GL_FRONT_AND_BACK, GL_LINE); // Draw in wireframe
 
+
+
 	//Camera
 	Camera camera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
 
@@ -108,6 +111,10 @@ int main()
 
 		shaderProgram.Activate();
 
+		glm::mat4 model = glm::mat4(1.0f);
+		glm::mat4 view = glm::mat4(1.0f);
+		glm::mat4 projection = glm::mat4(1.0f);
+
 		camera.Inputs(window);
 		camera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
 
@@ -116,6 +123,7 @@ int main()
 
 		//Objects
 		objects1.DrawObjects();
+		objects2.DrawObjects();
 
 		//Character
 		character1.DrawCharacter();
